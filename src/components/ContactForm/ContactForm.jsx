@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 export default function ContactForm() {
 	const nameFieldId = useId();
 	const phoneFieldId = useId();
-	const phoneRegExp = /^\d{3}-\d{2}-\d{2}$/;
+	const phoneRegExp = /^\d{3}-\d{3}-\d{4}$/;
 	const dispatch = useDispatch();
 
 	const formSchema = Yup.object().shape({
@@ -17,7 +17,7 @@ export default function ContactForm() {
 			.max(50, "Name is too long")
 			.required("Required!"),
 		phone: Yup.string()
-			.matches(phoneRegExp, "Phone number should be in format 000-00-00")
+			.matches(phoneRegExp, "Phone number should be in format 000-000-0000")
 			.required("Required!"),
 	});
 
